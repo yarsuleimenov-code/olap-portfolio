@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфографика: Введение в OLAP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .icon-bg {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Header -->
+        <header class="text-center mb-12 p-8 rounded-2xl header-bg text-white">
+            <!-- ВАЖНО: Путь к логотипу изменен на локальный -->
+            <img src="assets/Logo-white.png" alt="Casplan Logo" class="mx-auto mb-6 h-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">OLAP-модели: От данных к управленческим решениям</h1>
+            <p class="text-lg md:text-xl text-sky-200">Как перестать тонуть в Excel и начать видеть бизнес в объеме</p>
+        </header>
+
+        <!-- Section 1: Evolution -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-700">Эволюция инструментов бизнес-аналитики</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-center text-center">
+                <!-- Excel -->
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-sky-700">1. Excel</h3>
+                    <p class="mb-4">Первый шаг в аналитике. Гибкий, но ограниченный.</p>
+                    <div class="text-left space-y-2">
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Доступность и простота</p>
+                        <p class="flex items-start"><span class="text-red-500 mr-2 font-bold">✗</span> Ошибки ручного ввода</p>
+                        <p class="flex items-start"><span class="text-red-500 mr-2 font-bold">✗</span> Не справляется с Big Data</p>
+                         <p class="flex items-start"><span class="text-red-500 mr-2 font-bold">✗</span> Проблемы совместной работы</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block text-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </div>
+
+                <!-- ERP -->
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-sky-700">2. ERP-системы</h3>
+                    <p class="mb-4">Централизованный учет и контроль операций.</p>
+                    <div class="text-left space-y-2">
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Автоматизация и дисциплина</p>
+                        <p class="flex items-start"><span class="text-red-500 mr-2 font-bold">✗</span> Фокус на фиксации фактов</p>
+                        <p class="flex items-start"><span class="text-red-500 mr-2 font-bold">✗</span> Сложность глубокой аналитики</p>
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Единая база данных</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block text-center md:col-start-1 md:row-start-2 pt-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-sky-500 rotate-90 md:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </div>
+
+
+                <!-- OLAP -->
+                <div class="card p-6 border-4 border-sky-500 md:col-start-3 md:row-start-1">
+                    <h3 class="text-2xl font-semibold mb-3 text-sky-700">3. OLAP-системы</h3>
+                    <p class="mb-4">"Мозг" для анализа, а не просто база данных.</p>
+                    <div class="text-left space-y-2">
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Многомерный анализ</p>
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Мгновенная скорость</p>
+                        <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Поддержка стратегических решений</p>
+                         <p class="flex items-start"><span class="text-green-500 mr-2 font-bold">✓</span> Сценарии "что, если?"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: OLAP Architecture -->
+        <section class="bg-white p-8 rounded-2xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-700">Архитектура OLAP: Как устроен "Волшебный Куб"</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Cube -->
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-20 h-20 mb-4 rounded-full icon-bg flex items-center justify-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-14L4 7v10l8 4m0-14L4 7m16 0l-8 4m-8-4h16"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Куб (Cube)</h3>
+                    <p class="text-gray-600">Многомерная модель данных, которая преодолевает ограничения плоских 2D-таблиц. Основа OLAP.</p>
+                </div>
+
+                <!-- Dimensions -->
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-20 h-20 mb-4 rounded-full icon-bg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2zm0 0l9 5 9-5"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Измерения и Справочники</h3>
+                    <p class="text-gray-600">Оси анализа ("линзы"), через которые мы смотрим на данные: Продукт, Клиент, Время, Регион. Требуют единых и чистых справочников (Master Data).</p>
+                </div>
+
+                <!-- Hierarchies -->
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-20 h-20 mb-4 rounded-full icon-bg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Иерархии (Drill-Down / Roll-Up)</h3>
+                    <p class="text-gray-600">Вложенная структура внутри измерений (Год → Квартал → Месяц). Позволяет "проваливаться" к деталям (Drill-Down) и сворачивать данные к итогам (Roll-Up).</p>
+                </div>
+
+                <!-- Aggregations -->
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-20 h-20 mb-4 rounded-full icon-bg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Агрегации</h3>
+                    <p class="text-gray-600">Секрет высокой скорости OLAP. Предварительный расчет итоговых значений, который обеспечивает мгновенный отклик на запросы вместо долгого пересчета.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: OLAP in Action -->
+         <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-700">OLAP в действии: Интерактивная аналитика продаж</h2>
+            <div class="card text-center">
+                <h3 class="text-2xl font-semibold text-sky-700 mb-4">От плоских таблиц к интерактивному дашборду</h3>
+                <p class="text-gray-600 mb-6 max-w-4xl mx-auto">
+                    Вместо десятков разрозненных Excel-отчетов, OLAP-системы, такие как Casplan, позволяют визуализировать данные в едином интерактивном дашборде. Пользователь может мгновенно фильтровать, детализировать (Drill-Down) и агрегировать (Roll-Up) информацию по любым измерениям, получая ответы на сложные бизнес-вопросы за секунды.
+                </p>
+                 <!-- ВАЖНО: Путь к скриншоту изменен на локальный -->
+                <img src="assets/dashboard.jpg" alt="Дашборд аналитики продаж в Casplan" class="rounded-lg shadow-lg border border-gray-200 max-w-5xl mx-auto">
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">Инфографика создана на основе лекционных материалов Casplan.</p>
+            <p class="text-sm text-gray-500">Casplan — IBP-система, построенная на OLAP-архитектуре для интегрированного бизнес-планирования.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
